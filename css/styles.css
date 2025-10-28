@@ -13021,12 +13021,22 @@ body {
 .contact-section .card {
   border: 0;
   border-bottom: 0.25rem solid #64a19d;
+  height: 100%;
+}
+
+/* En pantallas pequeñas, que la altura sea automática */
+@media (max-width: 767.98px) {
+  .contact-section .card {
+    height: auto;
+  }
 }
 
 .contact-section .card h4,
 .contact-section .card .h4 {
   font-size: 0.8rem;
-  font-family: "Varela Round", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+  font-family: "Varela Round", -apple-system, BlinkMacSystemFont, "Segoe UI",
+    Roboto, "Helvetica Neue", Arial, sans-serif, "Apple Color Emoji",
+    "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
   text-transform: uppercase;
   letter-spacing: 0.15rem;
 }
@@ -13037,6 +13047,7 @@ body {
   border-width: 0.25rem;
   width: 3rem;
 }
+
 
 .contact-section .social {
   margin-top: 5rem;
@@ -13062,4 +13073,167 @@ body {
 
 .footer {
   padding: 5rem 0;
+}
+
+/*--------------------------------------------------------------
+# Team Section (versión mejorada)
+--------------------------------------------------------------*/
+.team {
+  padding: 4rem 0;
+  background-color: var(--section-bg-color);
+}
+
+.team .team-member {
+  text-align: center;
+  margin-bottom: 40px;
+  transition: all 0.3s ease-in-out;
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  background: #fff;
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+}
+
+.team .team-member .member-img {
+  position: relative;
+  overflow: hidden;
+  border-radius: 0;
+  margin-bottom: 0;
+}
+
+.team .team-member .member-img img {
+  width: 100%;
+  height: 250px;
+  /* Tamaño base */
+  object-fit: cover;
+  object-position: center 20%;
+  /* ✅ Prioriza mostrar la cara */
+  filter: grayscale(100%);
+  transition: all 0.3s ease-in-out;
+}
+
+.team .team-member:hover .member-img img {
+  transform: scale(1.05);
+  filter: grayscale(0%);
+}
+
+/* Contenedor de texto */
+.team .team-member .member-info {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: 20px 15px;
+  text-align: center;
+}
+
+.team .team-member .member-info h4,
+.team .team-member .member-info h5 {
+  font-weight: 300;
+  font-size: 1.5rem;
+  margin-bottom: 8px;
+  color: var(--heading-color);
+  line-height: 1.3;
+}
+
+.team .team-member .member-info span {
+  display: block;
+  font-size: 0.9rem;
+  color: var(--accent-color);
+  font-weight: 400;
+  margin-bottom: 20px;
+  letter-spacing: 0.5px;
+}
+
+.team .team-member .member-info p {
+  font-size: 0.95rem;
+  line-height: 1.7;
+  color: color-mix(in srgb, var(--default-color), transparent 20%);
+  margin-bottom: 25px;
+  padding: 0 10px;
+  text-align: justify;
+}
+
+/* Redes al fondo */
+.team .team-member .member-info .social {
+  display: flex;
+  justify-content: center;
+  gap: 15px;
+  margin-top: auto;
+}
+
+.team .team-member .member-info .social a {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+  border: 1px solid color-mix(in srgb, var(--default-color), transparent 85%);
+  border-radius: 50%;
+  color: color-mix(in srgb, var(--default-color), transparent 40%);
+  font-size: 16px;
+  transition: all 0.3s ease-in-out;
+}
+
+.team .team-member .member-info .social a:hover {
+  color: var(--contrast-color);
+  background-color: var(--accent-color);
+  border-color: var(--accent-color);
+  transform: translateY(-2px);
+}
+
+
+
+.team .team-member {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+/* 🔽 Ajustes Responsivos */
+@media (max-width: 992px) {
+  .team .team-member .member-img img {
+    height: 220px;
+    /* un poco más chico */
+  }
+
+  .team .team-member .member-info h4,
+  .team .team-member .member-info h5 {
+    font-size: 1.3rem;
+  }
+
+  .team .team-member .member-info p {
+    font-size: 0.9rem;
+  }
+}
+
+/* ✅ Para pantallas pequeñas */
+@media (max-width: 768px) {
+  .team .team-member .member-img img {
+    height: 200px;
+    object-position: center top;
+    /* centra ligeramente el rostro */
+  }
+
+  .team .team-member .member-info h4,
+  .team .team-member .member-info h5 {
+    font-size: 1.2rem;
+  }
+
+  .team .team-member .member-info p {
+    padding: 0;
+    font-size: 0.85rem;
+  }
+
+  .team .team-member .member-info .social {
+    gap: 12px;
+  }
+
+  .team .team-member .member-info .social a {
+    width: 36px;
+    height: 36px;
+    font-size: 14px;
+  }
 }
